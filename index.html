@@ -2,31 +2,31 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<title>Welcome | Toxic Era</title>
+<title>Toxic Era | Lecture</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{
-  background: linear-gradient(135deg,#0a4cff,#4fd1ff);
+  background:linear-gradient(135deg,#0a4cff,#63d2ff);
   min-height:100vh;
   overflow-x:hidden;
   color:#fff;
 }
 
-/* MONEY ANIMATION */
+/* MONEY */
 .money{
   position:fixed;
-  top:-50px;
-  font-size:24px;
-  animation: fall 6s linear infinite;
-  opacity:0.7;
+  top:-40px;
+  font-size:22px;
+  animation:fall 6s linear infinite;
+  opacity:.7
 }
 @keyframes fall{
   to{transform:translateY(120vh) rotate(360deg)}
 }
 
-/* WELCOME SCREEN */
+/* WELCOME */
 #welcome{
   position:fixed;
   inset:0;
@@ -35,99 +35,70 @@ body{
   align-items:center;
   justify-content:center;
   z-index:100;
-  animation: fadeOut 1s ease forwards;
+  animation:fadeOut 1s ease forwards;
   animation-delay:5s;
 }
 #welcome h1{
   font-size:2.2rem;
   letter-spacing:2px;
-  animation:pulse 1.5s infinite;
+  animation:pulse 1.5s infinite
 }
-@keyframes pulse{
-  0%,100%{opacity:1}
-  50%{opacity:0.4}
-}
-@keyframes fadeOut{
-  to{opacity:0;visibility:hidden}
-}
+@keyframes pulse{50%{opacity:.4}}
+@keyframes fadeOut{to{opacity:0;visibility:hidden}}
 
-/* DOOR ANIMATION */
-#doors{
-  position:fixed;
-  inset:0;
-  z-index:90;
-  display:flex;
-}
-.door{
-  width:50%;
-  background:#111;
-  animation:openDoor 3s ease forwards;
-}
+/* DOORS */
+#doors{position:fixed;inset:0;z-index:90;display:flex}
+.door{width:50%;background:#111;animation:open 3s ease forwards}
 .left{animation-delay:5s}
-.right{animation-delay:5s}
-@keyframes openDoor{
-  to{transform:translateX(-100%)}
-}
-.right{
-  animation-name:openDoorRight;
-}
-@keyframes openDoorRight{
-  to{transform:translateX(100%)}
-}
+.right{animation-delay:5s;animation-name:openR}
+@keyframes open{to{transform:translateX(-100%)}}
+@keyframes openR{to{transform:translateX(100%)}}
 
-/* MAIN CONTAINER */
+/* MAIN */
 .container{
-  padding:20px;
   max-width:1100px;
-  margin:120px auto 40px;
-  text-align:center;
+  margin:130px auto 40px;
+  padding:20px;
+  text-align:center
 }
-
-/* HEADER BOX */
 .header-box{
   background:#0b3cff;
   padding:12px;
   border-radius:10px;
-  margin-bottom:10px;
+  margin-bottom:10px
 }
-.header-box h2{font-size:1.1rem}
-
 .batch{
   background:#12b76a;
   padding:8px;
   border-radius:8px;
-  margin-bottom:20px;
-  font-size:0.95rem;
+  margin-bottom:25px
 }
 
-/* VIDEO BOX */
-.video-wrapper{
+/* PLACEHOLDER PLAYER BOX */
+.video-placeholder{
   border:4px solid hotpink;
   border-radius:16px;
-  padding:10px;
-  animation:borderGlow 2s infinite alternate;
+  padding:40px 20px;
   background:#000;
+  animation:glow 2s infinite alternate
 }
-@keyframes borderGlow{
+@keyframes glow{
   from{box-shadow:0 0 10px hotpink}
   to{box-shadow:0 0 25px deeppink}
 }
-video{
-  width:100%;
-  border-radius:10px;
-}
+.video-placeholder p{opacity:.8}
 
-/* WATCH BUTTON */
+/* BUTTON */
 .watch-btn{
-  margin:25px auto;
+  margin:30px auto;
   background:#e11d48;
-  padding:15px 40px;
+  padding:15px 45px;
   border:none;
   border-radius:30px;
   font-size:1.1rem;
   color:#fff;
   cursor:pointer;
-  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  box-shadow:0 10px 30px rgba(0,0,0,.4)
 }
 .watch-btn:hover{transform:scale(1.05)}
 
@@ -135,8 +106,8 @@ video{
 .footer{
   margin-top:30px;
   text-align:right;
-  font-size:0.85rem;
-  opacity:0.8;
+  font-size:.85rem;
+  opacity:.8
 }
 </style>
 </head>
@@ -157,16 +128,16 @@ video{
 <!-- MONEY -->
 <script>
 for(let i=0;i<25;i++){
-  let m=document.createElement("div");
-  m.className="money";
-  m.innerText="₹";
-  m.style.left=Math.random()*100+"vw";
-  m.style.animationDelay=Math.random()*5+"s";
-  document.body.appendChild(m);
+ let m=document.createElement("div");
+ m.className="money";
+ m.innerText="₹";
+ m.style.left=Math.random()*100+"vw";
+ m.style.animationDelay=Math.random()*5+"s";
+ document.body.appendChild(m);
 }
 </script>
 
-<!-- MAIN -->
+<!-- CONTENT -->
 <div class="container">
 
   <div class="header-box">
@@ -177,15 +148,12 @@ for(let i=0;i<25;i++){
     BATCH NAME: YAKEEN NEET HINDI 2026
   </div>
 
-  <div class="video-wrapper">
-    <!-- PLACEHOLDER VIDEO -->
-    <video controls playsinline>
-      <source src="https://anonymouspwplayerr-c96de7802811.herokuapp.com/pw?url=https://d1d34p8vz63oiq.cloudfront.net/c16036bf-4e85-48cb-baaf-7193e719b9ad/master.mpd&parentId=67738e4c923a6baf5208602e&childId=697e5775544f711056f413fc&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NzA1MzU5MjYuNDE2LCJkYXRhIjp7Il9pZCI6IjY2NjQ0OGQ0NGMxZjdhOGNmOTMzMGYxMyIsInVzZXJuYW1lIjoiNzQxMDgzMzQxNSIsImZpcnN0TmFtZSI6IlJhaHVsIiwibGFzdE5hbWUiOiJHb2xhIiwib3JnYW5pemF0aW9uIjp7Il9pZCI6IjVlYjM5M2VlOTVmYWI3NDY4YTc5ZDE4OSIsIndlYnNpdGUiOiJwaHlzaWNzd2FsbGFoLmNvbSIsIm5hbWUiOiJQaHlzaWNzd2FsbGFoIn0sImVtYWlsIjoicmFodWxnb2xhMzM0NUBnbWFpbC5jb20iLCJyb2xlcyI6WyI1YjI3YmQ5NjU4NDJmOTUwYTc3OGM2ZWYiLCI1Y2M5NWEyZThiZGU0ZDY2ZGU0MDBiMzciXSwiY291bnRyeUdyb3VwIjoiSU4iLCJ0eXBlIjoiVVNFUiJ9LCJpYXQiOjE3Njk5MzExMjZ9.cFZR3jeONlb91f32syIFJnqb2TMYpNv8nxGk08i-9Pg" type="video/mp4">
-      Your browser does not support video.
-    </video>
+  <div class="video-placeholder">
+    <p>▶ Lecture will open here after clicking WATCH NOW</p>
   </div>
 
-  <button class="watch-btn" onclick="playVideo()">WATCH NOW</button>
+  <!-- WATCH NOW -->
+  <button class="watch-btn" onclick="openLecture()">WATCH NOW</button>
 
   <div class="footer">
     Powerd by Smarty MS
@@ -194,10 +162,9 @@ for(let i=0;i<25;i++){
 </div>
 
 <script>
-function playVideo(){
-  const v=document.querySelector("video");
-  v.scrollIntoView({behavior:"smooth"});
-  v.play();
+function openLecture(){
+  /* 👇👇👇 YAHAN APNA VIDEO URL PASTE KARNA 👇👇👇 */
+  window.location.href = "https://anonymouspwplayerr-c96de7802811.herokuapp.com/pw?url=https://d1d34p8vz63oiq.cloudfront.net/c16036bf-4e85-48cb-baaf-7193e719b9ad/master.mpd&parentId=67738e4c923a6baf5208602e&childId=697e5775544f711056f413fc&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NzA1MzU5MjYuNDE2LCJkYXRhIjp7Il9pZCI6IjY2NjQ0OGQ0NGMxZjdhOGNmOTMzMGYxMyIsInVzZXJuYW1lIjoiNzQxMDgzMzQxNSIsImZpcnN0TmFtZSI6IlJhaHVsIiwibGFzdE5hbWUiOiJHb2xhIiwib3JnYW5pemF0aW9uIjp7Il9pZCI6IjVlYjM5M2VlOTVmYWI3NDY4YTc5ZDE4OSIsIndlYnNpdGUiOiJwaHlzaWNzd2FsbGFoLmNvbSIsIm5hbWUiOiJQaHlzaWNzd2FsbGFoIn0sImVtYWlsIjoicmFodWxnb2xhMzM0NUBnbWFpbC5jb20iLCJyb2xlcyI6WyI1YjI3YmQ5NjU4NDJmOTUwYTc3OGM2ZWYiLCI1Y2M5NWEyZThiZGU0ZDY2ZGU0MDBiMzciXSwiY291bnRyeUdyb3VwIjoiSU4iLCJ0eXBlIjoiVVNFUiJ9LCJpYXQiOjE3Njk5MzExMjZ9.cFZR3jeONlb91f32syIFJnqb2TMYpNv8nxGk08i-9Pg";
 }
 </script>
 
