@@ -14,19 +14,19 @@ body{
   color:#fff;
 }
 
-/* MONEY */
+/* MONEY ANIMATION */
 .money{
   position:fixed;
   top:-40px;
   font-size:22px;
   animation:fall 6s linear infinite;
-  opacity:.7
+  opacity:.7;
 }
 @keyframes fall{
   to{transform:translateY(120vh) rotate(360deg)}
 }
 
-/* WELCOME */
+/* WELCOME SCREEN */
 #welcome{
   position:fixed;
   inset:0;
@@ -41,46 +41,57 @@ body{
 #welcome h1{
   font-size:2.2rem;
   letter-spacing:2px;
-  animation:pulse 1.5s infinite
+  animation:pulse 1.5s infinite;
 }
 @keyframes pulse{50%{opacity:.4}}
 @keyframes fadeOut{to{opacity:0;visibility:hidden}}
 
-/* DOORS */
-#doors{position:fixed;inset:0;z-index:90;display:flex}
-.door{width:50%;background:#111;animation:open 3s ease forwards}
+/* DOOR ANIMATION */
+#doors{
+  position:fixed;
+  inset:0;
+  z-index:90;
+  display:flex;
+}
+.door{
+  width:50%;
+  background:#111;
+  animation:open 3s ease forwards;
+}
 .left{animation-delay:5s}
 .right{animation-delay:5s;animation-name:openR}
 @keyframes open{to{transform:translateX(-100%)}}
 @keyframes openR{to{transform:translateX(100%)}}
 
-/* MAIN */
+/* MAIN CONTENT */
 .container{
   max-width:1100px;
   margin:130px auto 40px;
   padding:20px;
-  text-align:center
+  text-align:center;
 }
+
+/* HEADER */
 .header-box{
   background:#0b3cff;
   padding:12px;
   border-radius:10px;
-  margin-bottom:10px
+  margin-bottom:10px;
 }
 .batch{
   background:#12b76a;
   padding:8px;
   border-radius:8px;
-  margin-bottom:25px
+  margin-bottom:25px;
 }
 
-/* PLACEHOLDER PLAYER BOX */
+/* VIDEO PLACEHOLDER */
 .video-placeholder{
   border:4px solid hotpink;
   border-radius:16px;
   padding:40px 20px;
   background:#000;
-  animation:glow 2s infinite alternate
+  animation:glow 2s infinite alternate;
 }
 @keyframes glow{
   from{box-shadow:0 0 10px hotpink}
@@ -88,7 +99,7 @@ body{
 }
 .video-placeholder p{opacity:.8}
 
-/* BUTTON */
+/* WATCH BUTTON */
 .watch-btn{
   margin:30px auto;
   background:#e11d48;
@@ -98,16 +109,16 @@ body{
   font-size:1.1rem;
   color:#fff;
   cursor:pointer;
-  box-shadow:0 10px 30px rgba(0,0,0,.4)
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
-.watch-btn:hover{transform:scale(1.05)}
+.watch-btn:active{transform:scale(0.97)}
 
 /* FOOTER */
 .footer{
   margin-top:30px;
   text-align:right;
   font-size:.85rem;
-  opacity:.8
+  opacity:.8;
 }
 </style>
 </head>
@@ -125,19 +136,19 @@ body{
   <div class="door right"></div>
 </div>
 
-<!-- MONEY -->
+<!-- MONEY EFFECT -->
 <script>
 for(let i=0;i<25;i++){
- let m=document.createElement("div");
- m.className="money";
- m.innerText="₹";
- m.style.left=Math.random()*100+"vw";
- m.style.animationDelay=Math.random()*5+"s";
- document.body.appendChild(m);
+  let m=document.createElement("div");
+  m.className="money";
+  m.innerText="₹";
+  m.style.left=Math.random()*100+"vw";
+  m.style.animationDelay=Math.random()*5+"s";
+  document.body.appendChild(m);
 }
 </script>
 
-<!-- CONTENT -->
+<!-- MAIN -->
 <div class="container">
 
   <div class="header-box">
@@ -149,10 +160,9 @@ for(let i=0;i<25;i++){
   </div>
 
   <div class="video-placeholder">
-    <p>▶ Lecture will open here after clicking WATCH NOW</p>
+    <p>▶ Lecture will open after clicking WATCH NOW</p>
   </div>
 
-  <!-- WATCH NOW -->
   <button class="watch-btn" onclick="openLecture()">WATCH NOW</button>
 
   <div class="footer">
@@ -161,10 +171,18 @@ for(let i=0;i<25;i++){
 
 </div>
 
+<!-- FIXED SCRIPT -->
 <script>
 function openLecture(){
-  /* 👇👇👇 YAHAN APNA VIDEO URL PASTE KARNA 👇👇👇 */
-  window.location.href = "https://anonymouspwplayerr-c96de7802811.herokuapp.com/pw?url=https://d1d34p8vz63oiq.cloudfront.net/c16036bf-4e85-48cb-baaf-7193e719b9ad/master.mpd&parentId=67738e4c923a6baf5208602e&childId=697e5775544f711056f413fc&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NzA1MzU5MjYuNDE2LCJkYXRhIjp7Il9pZCI6IjY2NjQ0OGQ0NGMxZjdhOGNmOTMzMGYxMyIsInVzZXJuYW1lIjoiNzQxMDgzMzQxNSIsImZpcnN0TmFtZSI6IlJhaHVsIiwibGFzdE5hbWUiOiJHb2xhIiwib3JnYW5pemF0aW9uIjp7Il9pZCI6IjVlYjM5M2VlOTVmYWI3NDY4YTc5ZDE4OSIsIndlYnNpdGUiOiJwaHlzaWNzd2FsbGFoLmNvbSIsIm5hbWUiOiJQaHlzaWNzd2FsbGFoIn0sImVtYWlsIjoicmFodWxnb2xhMzM0NUBnbWFpbC5jb20iLCJyb2xlcyI6WyI1YjI3YmQ5NjU4NDJmOTUwYTc3OGM2ZWYiLCI1Y2M5NWEyZThiZGU0ZDY2ZGU0MDBiMzciXSwiY291bnRyeUdyb3VwIjoiSU4iLCJ0eXBlIjoiVVNFUiJ9LCJpYXQiOjE3Njk5MzExMjZ9.cFZR3jeONlb91f32syIFJnqb2TMYpNv8nxGk08i-9Pg";
+  const videoURL = "https://anonymouspwplayerr-c96de7802811.herokuapp.com/pw?url=https://d1d34p8vz63oiq.cloudfront.net/c16036bf-4e85-48cb-baaf-7193e719b9ad/master.mpd&parentId=67738e4c923a6baf5208602e&childId=697e5775544f711056f413fc&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NzA1MzU5MjYuNDE2LCJkYXRhIjp7Il9pZCI6IjY2NjQ0OGQ0NGMxZjdhOGNmOTMzMGYxMyIsInVzZXJuYW1lIjoiNzQxMDgzMzQxNSIsImZpcnN0TmFtZSI6IlJhaHVsIiwibGFzdE5hbWUiOiJHb2xhIiwib3JnYW5pemF0aW9uIjp7Il9pZCI6IjVlYjM5M2VlOTVmYWI3NDY4YTc5ZDE4OSIsIndlYnNpdGUiOiJwaHlzaWNzd2FsbGFoLmNvbSIsIm5hbWUiOiJQaHlzaWNzd2FsbGFoIn0sImVtYWlsIjoicmFodWxnb2xhMzM0NUBnbWFpbC5jb20iLCJyb2xlcyI6WyI1YjI3YmQ5NjU4NDJmOTUwYTc3OGM2ZWYiLCI1Y2M5NWEyZThiZGU0ZDY2ZGU0MDBiMzciXSwiY291bnRyeUdyb3VwIjoiSU4iLCJ0eXBlIjoiVVNFUiJ9LCJpYXQiOjE3Njk5MzExMjZ9.cFZR3jeONlb91f32syIFJnqb2TMYpNv8nxGk08i-9Pg"; // 🔴 yahin apna URL paste karo
+
+  if(!videoURL || videoURL.includes("PASTE_")){
+    alert("Video URL not added yet!");
+    return;
+  }
+
+  // Mobile + Chrome safe, same tab
+  location.assign(videoURL);
 }
 </script>
 
